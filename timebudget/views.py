@@ -1,16 +1,20 @@
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
+from django.shortcuts import render, get_object_or_404
+
+from .models import Timeslot
 
 from .forms import TimeslotForm
 
-# Create your views here.
-
-from django.http import HttpResponse
-
 def index(request):
-    return render(request, 'timebudget/index.html')
+    timeslots = Timeslot.objects.all()
+    return render(request, 'timebudget/index.html', {'timeslots': timeslots})
 
-def timeslot_create(request):
+def view(request, slot_id):
+    timeslot = get_object_or_404(Timeslot, pk=slot_id)
+
+    return render(request, 'timebudget/timeslot.html', {'timeslot': timeslot})
+
+def create(request):
     if request.method == 'POST':
         form = TimeslotForm(request.POST)
 

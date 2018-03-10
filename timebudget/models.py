@@ -16,6 +16,12 @@ class Timeslot(models.Model):
     duration = models.DurationField()
 
 class Event(models.Model):
+    EVENT_TYPE = (
+        ('HOME', 'Home'),
+        ('STUDY', 'Study'),
+        ('WORK', 'Work'),
+        ('FUN', 'Fun')
+    )
     timeslot = models.ForeignKey(Timeslot, on_delete=models.CASCADE)
+    type = models.CharField(default='HOME', max_length=5, choices=EVENT_TYPE)
     name = models.CharField(max_length=100)
-    frequency = models.IntegerField()
