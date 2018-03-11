@@ -2,15 +2,12 @@
 
 ## Models 
 
-- User
-One to many for:
 - Timeslots
+- Events
 
 ## Validation of data
 
-User needs name, email, user, password
-
-Timeslot needs a description, timestamp and duration
+Timeslot needs a timestamp and duration
 
 ## Controllers
 
@@ -24,3 +21,4 @@ Timeslot needs a description, timestamp and duration
 
 - Presentation 
 - Sending data from forms
+

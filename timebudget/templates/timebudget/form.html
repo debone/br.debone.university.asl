@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Schedule timeslot</h1>
-    <form action="/timeslot/new" method="post">
+    <form action="/timeslot/create" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Submit">

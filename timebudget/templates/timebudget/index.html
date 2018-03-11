@@ -5,7 +5,17 @@
     <title>Timebudget</title>
 </head>
 <body>
-    <h1>Hey, timebudget it</h1>
-    <a href="/timeslot/new">New timeslot</a>
+    <h1>Hey, timeslots!</h1>
+    <p>There is no slot running right now</p>
+    <a href="/timeslot/create">Start new timeslot</a>
+
+
+    <h2>Past Timeslots</h2>
+    {{ timeslots }}
+
+    {% for timeslot in timeslots %}
+        {% url 'view_timeslot' timeslot.id %}
+        {{ timeslot.duration }}
+    {% endfor %}
 </body>
 </html>
