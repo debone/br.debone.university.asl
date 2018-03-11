@@ -1,3 +1,5 @@
+from time import localtime, strftime
+
 from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404
 
@@ -20,8 +22,14 @@ def create(request):
 
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/timeslot/')
     else:
-        form = TimeslotForm()
+        now = localtime()
+        form = TimeslotForm({
+            'day_of_the_week': int(strftime('%w', now)),
+            'start_time': strftime('%H:%M:%S', now),
+            'duration': 25
+        })
+        # form.save()
+        # return HttpResponseRedirect('/timeslot/')
 
     return render(request, 'timebudget/form.html', {'form': form})
