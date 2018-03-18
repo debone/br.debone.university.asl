@@ -1,0 +1,11 @@
+{% if type == 'HOME' %}
+    <span class="lozenge lozenge-home">
+{% elif type == 'STUDY' %}
+    <span class="lozenge lozenge-study">
+{% elif type == 'WORK' %}
+    <span class="lozenge lozenge-work">
+{% else %}
+    <span class="lozenge lozenge-fun">
+{% endif %}
+    {{ type }}
+</span>

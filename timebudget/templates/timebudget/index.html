@@ -21,12 +21,10 @@
 
 
             {% for event in events %}
-                <li>
-                    <a href="{% url 'view_timeslot' event.id %}">
-                        {{ event.name }}
-                        {{ event.type }}
-                    </a>
-                </li>
+                <div class="slot">
+                    {% include "timebudget/lozenge.html" with type=event.type %}
+                    {{ event.name }}
+                </div>
             {% endfor %}
         </div>
     {% endif %}
