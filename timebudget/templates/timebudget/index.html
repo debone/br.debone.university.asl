@@ -19,30 +19,29 @@
                 Timeslot #{{ timeslot.id }}
             </p>
 
-
-            {% for event in events %}
-                <li>
-                    <a href="{% url 'view_timeslot' event.id %}">
+            <div class="slots">
+                {% for event in events %}
+                    <div class="slot">
+                        {% include "timebudget/lozenge.html" with type=event.type %}
                         {{ event.name }}
-                        {{ event.type }}
-                    </a>
-                </li>
-            {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     {% endif %}
 
     <div class="block">
         <h2>Past Timeslots</h2>
 
-        <ul class="slots">
+        <div class="slots">
             {% for timeslot in timeslots %}
-                <li class="slot">
+                <div class="slot">
                     <a href="{% url 'view_timeslot' timeslot.id %}">
                         {{ timeslot.duration }}
                     </a>
-                </li>
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     </div>
 
     <p>Start a slot, write some tasks, complete them in the slot!</p>

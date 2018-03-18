@@ -30,6 +30,6 @@ function fireCountdown() {
 
 function showCountdown() {
     if (clock) {
-        clock.innerText = `${timer.hours()}:${timer.minutes()}:${timer.seconds()}`;
+        clock.innerText = `${timer.hours() >= 10 ? timer.hours() : '0' + timer.hours()}:${timer.minutes() >= 10 ? timer.minutes() : '0' + timer.minutes()}:${timer.seconds() >= 10 ? timer.seconds() : '0' + timer.seconds()}`;
     }
 }
