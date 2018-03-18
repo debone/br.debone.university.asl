@@ -1,7 +1,14 @@
-from django.forms import ModelForm
-from .models import Timeslot
+from django import forms
 
-class TimeslotForm(ModelForm):
+from .models import Timeslot, Event
+
+class TimeslotForm(forms.ModelForm):
     class Meta:
         model = Timeslot
-        fields = ['start_time', 'day_of_the_week', 'duration']
+        fields = ['duration']
+
+class EventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = ['timeslot', 'type', 'name']
+        widgets = {'timeslot': forms.HiddenInput()}

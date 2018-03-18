@@ -1,21 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Timebudget</title>
-</head>
-<body>
-    <h1>Hey, timeslots!</h1>
-    <p>There is no slot running right now</p>
-    <a href="/timeslot/create">Start new timeslot</a>
+{% extends "default.html" %}
+
+{% block content %}
+    <div class="block">
+        <h1>Hey, timeslots!</h1>
+    </div>
+
+    {% if timeslot == False %}
+        <div>
+            <p>There is no slot running right now</p>
+            <a href="{% url 'create_timeslot' %}">Start new timeslot</a>
+        </div>
+    {% else %}
+        <div class="block">
+            <a href="{% url 'create_task' %}?timeslot={{ timeslot.id }}">Start new task</a>
+
+            <p>
+                <span class="duration">{{ timeleft }}</span>
+                Timeslot #{{ timeslot.id }}
+            </p>
 
 
-    <h2>Past Timeslots</h2>
-    {{ timeslots }}
+            {% for event in events %}
+                <li>
+                    <a href="{% url 'view_timeslot' event.id %}">
+                        {{ event.name }}
+                        {{ event.type }}
+                    </a>
+                </li>
+            {% endfor %}
+        </div>
+    {% endif %}
 
-    {% for timeslot in timeslots %}
-        {% url 'view_timeslot' timeslot.id %}
-        {{ timeslot.duration }}
-    {% endfor %}
-</body>
-</html>
+    <div class="block">
+        <h2>Past Timeslots</h2>
+
+        <ul class="slots">
+            {% for timeslot in timeslots %}
+                <li class="slot">
+                    <a href="{% url 'view_timeslot' timeslot.id %}">
+                        {{ timeslot.duration }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <p>Start a slot, write some tasks, complete them in the slot!</p>
+{% endblock %}

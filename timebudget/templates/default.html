@@ -1,0 +1,20 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'timebudget/normalize.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'timebudget/style.css' %}" />
+        <title>{% block title %}Timebudget{% endblock %}</title>
+    </head>
+
+    <body>
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+
+        <script src="{% static 'timebudget/moment.min.js' %}"></script>
+        <script src="{% static 'timebudget/script.js' %}"></script>
+    </body>
+</html>

@@ -1,9 +1,10 @@
 {% extends "default.html" %}
 
 {% block content %}
-    <h1>Schedule timeslot</h1>
+    <h1>Add new task</h1>
     <div class="block">
-        <form action="{% url 'create_timeslot' %}" method="post">
+        <h1>Task</h1>
+        <form action="{% url 'create_task' %}" method="post">
             {% csrf_token %}
             {{ form }}
             <input type="submit" value="Submit">

@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'Neris-SemiBold';
+    src: url('Neris-SemiBold-webfont.woff2') format('woff2'),
+         url('Neris-SemiBold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neris-Light';
+    src: url('Neris-Light-webfont.woff2') format('woff2'),
+         url('Neris-Light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    height: 100%;
+}
+
+
+body {
+    font: 100 1rem 'Neris-Light', sans-serif;
+    display: flex;
+    background-color: floralwhite;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+h1, h2, h3 {
+    font-family: 'Neris-SemiBold', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+}
+
+.block {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border: solid 1px lightcyan;
+    box-shadow: 0 1px 2px gray;
+}
+
+.block + .block {
+    padding: 10px 15px 15px;
+}
+
+.block form {
+    display: flex;
+    flex-direction: column;
+}
+
+.block input + label,
+.block select + label {
+    margin: 5px 0 0;
+}
+
+.block input[type='submit'] {
+    margin:15px 5px 5px;
+}
+
+.block > a {
+    float:right;
+    font-size: 0.8rem;
+}
+.slots {
+
+}
+
+.slot {
+
+}
+
+
+.duration {
+    font-family: 'Neris-SemiBold', sans-serif;
+    font-size: 1.5rem;
+    display: block;
+}
