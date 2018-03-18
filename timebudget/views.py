@@ -39,7 +39,14 @@ def index(request):
 def view(request, slot_id):
     timeslot = get_object_or_404(Timeslot, pk=slot_id)
 
-    return render(request, 'timebudget/timeslot.html', {'timeslot': timeslot})
+    events = Event.objects.filter(
+        timeslot=timeslot
+    ) if timeslot else False
+
+    return render(request, 'timebudget/timeslot.html', {
+        'timeslot': timeslot,
+        'events': events
+    })
 
 def create(request):
     if request.method == 'POST':

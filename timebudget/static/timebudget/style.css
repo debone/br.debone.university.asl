@@ -104,7 +104,8 @@ h1, h2, h3 {
     background-color: goldenrod;
 }
 
-.duration {
+.duration,
+.duration-freezed {
     font-family: 'Neris-SemiBold', sans-serif;
     font-size: 1.5rem;
     display: block;

@@ -1,5 +1,23 @@
 {% extends "default.html" %}
 
 {% block content %}
-    {{ timeslot }}
+     <div class="block">
+            <p>
+                <span class="duration-freezed">{{ timeslot.duration }}</span>
+                Timeslot #{{ timeslot.id }}
+            </p>
+
+            {% if not events %}
+                No events happened in this slot
+            {% endif %}
+
+            <div class="slots">
+                {% for event in events %}
+                    <div class="slot">
+                        {% include "timebudget/lozenge.html" with type=event.type %}
+                        {{ event.name }}
+                    </div>
+                {% endfor %}
+            </div>
+     </div>
 {% endblock %}
